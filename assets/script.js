@@ -1,10 +1,27 @@
+// Prompt for password length
+let length = prompt ("Enter a password between the length of 8 and 128 characters");
+  // Validate the length input
+  if (length < 8 || length > 128 || isNaN(length)) {
+    alert("Invalid length. Please enter a number between 8 and 128.");
+    return;
+  } 
+  
+ // Prompt for character types
+  let includelowerCaseLetters = confirm("Include lowercase characters?");
+  let includeupperCaseLetters = confirm("Include uppercase characters?");
+  let includenumericCharacters = confirm("Include numeric characters?");
+  let includespecialCharacters = confirm("Include special characters?");
+  
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var lowerCaseLetters = "abcd";
-var upperCaseLetters = "ABCD";
-var numericCharacters = "1234";
-var specialCharacters = "!@#$";
+var lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numericCharacters = "1234567890";
+var specialCharacters = "!@#$%^&*()-_=+[{]}\|;:',<.>/?";
+
+
 
 // Write password to the #password input
 function writePassword() {
@@ -39,6 +56,7 @@ function generatePassword(passwordLength, useLowerCaseLetters, useUpperCaseLette
   for (let i = 0 ; i < passwordLength ; i++) {
     //Choose random integer number (rounded to nearest integer) between 0 and passwordCharacters.length-1 (remember length is normal.. array starts at 0, not 1)
     randomCharacterNum = Math.round(Math.random() * ((passwordCharacters.length - 1) - 0));
+
 
     //Pick random letter from passwordCharacters using randomCharacterNum from above and add it to passwordResult
     passwordResult = passwordResult.concat(passwordCharacters.charAt(randomCharacterNum));
