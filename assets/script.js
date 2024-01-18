@@ -1,10 +1,12 @@
 // Prompt for password length
-let length = prompt ("Enter a password between the length of 8 and 128 characters");
-  // Validate the length input
-  if (length < 8 || length > 128 || isNaN(length)) {
-    alert("Invalid length. Please enter a number between 8 and 128.");
-    return;
-  } 
+let length = parseInt(
+  prompt ("Enter a password between the length of 8 and 128 characters")
+  );
+  // // Validate the length input
+  // if (length < 8 || length > 128 || isNaN(length)) {
+  //   alert("Invalid length. Please enter a number between 8 and 128.");
+  //   return null;
+  // } 
   
  // Prompt for character types
   let includelowerCaseLetters = confirm("Include lowercase characters?");
@@ -26,7 +28,7 @@ var specialCharacters = "!@#$%^&*()-_=+[{]}\|;:',<.>/?";
 // Write password to the #password input
 function writePassword() {
   //This is where pw length and types of characters are input into function (from interface)
-  var password = generatePassword(8, true, true, true, true);
+  var password = generatePassword(length, includelowerCaseLetters, includeupperCaseLetters, includenumericCharacters, includespecialCharacters);
   var passwordText = document.querySelector("#password");
 
   //Set passwordText textbox to value of password... which is the value returned from generatePassword function
